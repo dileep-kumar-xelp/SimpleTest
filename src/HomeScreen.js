@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+import PropTypes from "prop-types";
 export default class HomeScreen extends Component {
   static navigationOptions = {
     drawerLabel: "Home"
   };
+  componentDidMount() {
+    this.props.getCategories && this.props.getCategories();
+  }
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -12,3 +16,9 @@ export default class HomeScreen extends Component {
     );
   }
 }
+HomeScreen.propTpes = {
+  getCategories: PropTypes.func
+};
+HomeScreen.defaultProps = {
+  getCategories: null
+};
