@@ -11,16 +11,25 @@ import {
   createDrawerNavigator,
   createAppContainer,
   createStackNavigator,
+  createBottomTabNavigator,
   DrawerActions
 } from "react-navigation";
 import Home from "./src/Demo";
+import TabOne from "./src/TabOne";
+import TabTwo from "./src/TabTwo";
+import TabThree from "./src/TabThree";
 import DrawerScreen from "./src/DrawerScreen";
 import Grid from "./src/Grid";
 import Icon from "react-native-vector-icons/Ionicons";
+const TabStack = createBottomTabNavigator({
+  TabOne: TabOne,
+  TabTwo: TabTwo,
+  TabThree: TabThree
+});
 RootStack = createDrawerNavigator(
   {
     Home: {
-      screen: Home
+      screen: TabStack
     },
     Grid: {
       screen: Grid
