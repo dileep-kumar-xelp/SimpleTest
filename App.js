@@ -24,11 +24,44 @@ import Grid from "./src/Grid";
 import Icon from "react-native-vector-icons/Ionicons";
 import configureStore from "./configStore";
 import { Provider } from "react-redux";
-const TabStack = createBottomTabNavigator({
-  TabOne: Home,
-  TabTwo: TabTwo,
-  TabThree: TabThree
-});
+import Ionicons from "react-native-vector-icons/Ionicons";
+const TabStack = createBottomTabNavigator(
+  {
+    Home: Home,
+    AddTask: TabTwo,
+    Explore: TabThree,
+    RedDit: TabThree,
+    Messages: TabThree
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let IconComponent = Ionicons;
+        let iconName;
+        if (routeName === "Home") {
+          iconName = "ios-home";
+        } else if (routeName === "AddTask") {
+          iconName = "ios-calendar";
+        } else if (routeName === "Explore") {
+          iconName = "ios-compass";
+        } else if (routeName === "RedDit") {
+          iconName = "ios-happy";
+        } else if (routeName === "Messages") {
+          iconName = "ios-mail-unread";
+        }
+
+        // You can return any component that you like here!
+        return <IconComponent name={iconName} size={25} color={tintColor} />;
+      }
+    }),
+    tabBarLabel: "HOME",
+    tabBarOptions: {
+      activeTintColor: "blue",
+      inactiveTintColor: "gray"
+    }
+  }
+);
 RootStack = createDrawerNavigator(
   {
     Home: {
