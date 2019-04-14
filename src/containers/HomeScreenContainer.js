@@ -12,11 +12,14 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        getCategories=() => {
-            dispatch(getCategories())
-        }
+  return {
+    getCategories: () => {
+      dispatch(getCategories());
     }
-}
-const HomeScreenContainer = connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+  };
+};
+const HomeScreenContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);
 export default HomeScreenContainer;

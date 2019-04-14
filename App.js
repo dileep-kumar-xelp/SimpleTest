@@ -14,15 +14,18 @@ import {
   createBottomTabNavigator,
   DrawerActions
 } from "react-navigation";
-import Home from "./src/Demo";
+import Home from "./src/containers/HomeScreenContainer";
+import HomeScreen from "./src/components/HomeScreen";
 import TabOne from "./src/TabOne";
 import TabTwo from "./src/TabTwo";
 import TabThree from "./src/TabThree";
 import DrawerScreen from "./src/DrawerScreen";
 import Grid from "./src/Grid";
 import Icon from "react-native-vector-icons/Ionicons";
+import configureStore from "./configStore";
+import { Provider } from "react-redux";
 const TabStack = createBottomTabNavigator({
-  TabOne: TabOne,
+  TabOne: Home,
   TabTwo: TabTwo,
   TabThree: TabThree
 });
@@ -149,7 +152,17 @@ const AppContainer = createAppContainer(AppStack);
 
 // const MyApp = createAppContainer(MyDrawerNavigator);
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      store: configureStore(() => this.setState({ isLoading: false }))
+    };
+  }
   render() {
-    return <AppContainer />;
+    return (
+      <Provider store={this.state.store}>
+        <AppContainer />
+      </Provider>
+    );
   }
 }

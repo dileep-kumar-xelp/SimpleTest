@@ -24,4 +24,24 @@ export function getCategoriesListFailure(error) {
   };
 }
 
-export function getCategories() {}
+export function getCategories() {
+  console.log("api called");
+  return async (dispatch, getState, api) => {
+    dispatch(getCategoriesListRequest());
+    try {
+      const result = await api.get();
+      const resultJson = await result.json();
+      console.log("ResULT", resultJson);
+      let errorDetails = getError(resultJson);
+
+      if (errorDetails.hasError) {
+        throw new Error(errorDetails.message);
+      } else {
+        dispatch(getCategoriesListSuccess(resultJson.data));
+      }
+    } catch (e) {
+      console.log("error", e.message);
+      dispatch(getCategoriesListFailure(e.message));
+    }
+  };
+}
