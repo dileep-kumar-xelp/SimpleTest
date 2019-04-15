@@ -5,7 +5,7 @@
 
 import { AppRegistry } from "react-native";
 import App from "./App";
-import Grid from "./src/Grid";
+import AppContainer from "./src/containers/MainContainer";
 import { name as appName } from "./app.json";
 
 AppRegistry.registerComponent(appName, () => App);

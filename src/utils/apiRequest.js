@@ -6,5 +6,5 @@ export async function get() {
   //   "Content-Type": "application/json;charset=utf-8"
   // }
   console.log("apiiiiiiiii");
-  return await fetch("https://www.reddit.com/r/news/top.json?limit=10", {});
+  return await fetch("https://www.reddit.com/r/sports/top.json?limit=10", {});
 }
