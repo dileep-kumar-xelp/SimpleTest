@@ -21,6 +21,7 @@ export default class HomeScreen extends Component {
     );
   };
   render() {
+    console.log("CHANGECOLOR", this.props.theme.background);
     if (this.props.loading) {
       return (
         <View style={styles.loaderContainer}>
@@ -30,7 +31,12 @@ export default class HomeScreen extends Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: this.props.theme.background }
+        ]}
+      >
         {this.props.categoriesList && (
           <FlatList
             contentContainerStyle={styles.list}
@@ -46,7 +52,8 @@ export default class HomeScreen extends Component {
 }
 HomeScreen.propTpes = {
   getCategories: PropTypes.func,
-  categoriesList: PropTypes.object
+  categoriesList: PropTypes.object,
+  theme: PropTypes.object
 };
 HomeScreen.defaultProps = {
   getCategories: null,

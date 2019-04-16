@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { View, TouchableOpacity } from "react-native";
+import React from "react";
 import {
   createDrawerNavigator,
   createAppContainer,
@@ -7,14 +6,13 @@ import {
   createBottomTabNavigator,
   DrawerActions
 } from "react-navigation";
-import Home from "./src/containers/HomeScreenContainer";
-import TabOne from "./src/components/TabOne";
-import TabTwo from "./src/components/TabTwo";
-import TabThree from "./src/components/TabThree";
-import DrawerScreen from "./src/components/DrawerScreen";
+import Home from "../containers/HomeScreenContainer";
+//import TabOne from "./src/components/TabOne";
+import TabTwo from "./TabTwo";
+import TabThree from "./TabThree";
+import DrawerScreen from "./DrawerScreen";
 import Icon from "react-native-vector-icons/Ionicons";
-import configureStore from "./configStore";
-import { Provider } from "react-redux";
+import HeaderContainer from "../containers/HeaderContainer";
 const TabStack = createBottomTabNavigator(
   {
     Home: Home,
@@ -65,58 +63,11 @@ RootStack = createDrawerNavigator(
     drawerBackgroundColor: "white",
     navigationOptions: ({ navigation }) => {
       return {
-        header: ({ navigation, scene }) => (
-          <View
-            style={{
-              height: 56,
-              backgroundColor: "white",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between"
-            }}
-          >
-            <TouchableOpacity
-              style={{
-                height: 50,
-                width: 50,
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-              onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-            >
-              <Icon name="ios-menu" size={30} color="#000" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                height: 50,
-                width: 50,
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-              onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-            >
-              <Icon name="ios-brush" size={25} color="#000" />
-            </TouchableOpacity>
-          </View>
-        )
+        header: <HeaderContainer />
       };
     }
   }
 );
 const AppStack = createStackNavigator({ RootStack: { screen: RootStack } });
 const AppContainer = createAppContainer(AppStack);
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      store: configureStore(() => this.setState({ isLoading: false }))
-    };
-  }
-  render() {
-    return (
-      <Provider store={this.state.store}>
-        <AppContainer />
-      </Provider>
-    );
-  }
-}
+export default AppContainer;
