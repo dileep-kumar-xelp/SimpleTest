@@ -13,6 +13,7 @@ import TabThree from "./TabThree";
 import DrawerScreen from "./DrawerScreen";
 import Icon from "react-native-vector-icons/Ionicons";
 import HeaderContainer from "../containers/HeaderContainer";
+import LoginScreen from "./LoginScreen";
 const TabStack = createBottomTabNavigator(
   {
     Home: Home,
@@ -68,6 +69,9 @@ RootStack = createDrawerNavigator(
     }
   }
 );
-const AppStack = createStackNavigator({ RootStack: { screen: RootStack } });
+const AppStack = createStackNavigator({
+  LoginScreen: { screen: LoginScreen },
+  RootStack: { screen: RootStack }
+});
 const AppContainer = createAppContainer(AppStack);
 export default AppContainer;
