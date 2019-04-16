@@ -3,6 +3,9 @@ export const GET_CATEGORIESLIST_REQUEST = "GET_CATEGORIESLIST_REQUEST";
 export const GET_CATEGORIESLIST_SUCCESS = "GET_CATEGORIESLIST_SUCCESS";
 export const GET_CATEGORIESLIST_FAILURE = "GET_CATEGORIESLIST_FAILURE";
 
+export const CHANGE_THEME_REQUEST = "CHANGE_THEME_REQUEST";
+export const CHANGE_THEME_SUCCESS = "CHANGE_THEME_SUCCESS";
+export const CHANGE_THEME_FAILURE = "CHANGE_THEME_FAILURE";
 export function getCategoriesListRequest() {
   return {
     type: GET_CATEGORIESLIST_REQUEST,
@@ -34,5 +37,15 @@ export function getCategories() {
     } catch (e) {
       dispatch(getCategoriesListFailure(e.message));
     }
+  };
+}
+
+export function changeBaseTheme(BaseTheme) {
+  //dispatch an action to change light or dark theme
+  return dispatch => {
+    dispatch({
+      type: "CHANGE_BASE_THEME",
+      baseTheme: BaseTheme
+    });
   };
 }

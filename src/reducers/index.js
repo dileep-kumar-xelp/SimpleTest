@@ -1,3 +1,4 @@
 import { combineReducers } from "redux";
 import categories from "../reducers/categories.reducer";
-export default combineReducers({ categories });
+import themeReducer from "../reducers/theme.reducer";
+export default combineReducers({ categories, themeReducer });
