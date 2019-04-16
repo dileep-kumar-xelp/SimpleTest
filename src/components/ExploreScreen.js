@@ -3,7 +3,7 @@ import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import PropTypes from "prop-types";
 import ListItem from "../corecomponents/ListItem";
 import styles from "../styles/HomeScreenStyles";
-export default class HomeScreen extends Component {
+export default class ExploreScreen extends Component {
   static navigationOptions = {
     drawerLabel: "Home"
   };
@@ -49,12 +49,12 @@ export default class HomeScreen extends Component {
     );
   }
 }
-HomeScreen.propTpes = {
+ExploreScreen.propTpes = {
   getCategories: PropTypes.func,
   categoriesList: PropTypes.object,
   theme: PropTypes.object
 };
-HomeScreen.defaultProps = {
+ExploreScreen.defaultProps = {
   getCategories: null,
   categoriesList: null
 };

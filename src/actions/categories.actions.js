@@ -27,11 +27,11 @@ export function getCategoriesListFailure(error) {
   };
 }
 
-export function getCategories() {
+export function getCategories(limit = 10) {
   return async (dispatch, getState, api) => {
     dispatch(getCategoriesListRequest());
     try {
-      const result = await api.get();
+      const result = await api.get(`sports/top.json?limit=${limit}`);
       const resultJson = await result.json();
       dispatch(getCategoriesListSuccess(resultJson.data));
     } catch (e) {
