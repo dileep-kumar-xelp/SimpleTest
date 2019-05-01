@@ -7,7 +7,7 @@ export default class TabTwo extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Text>TabTwo</Text>
+        <Text>TabTwo.</Text>
       </View>
     );
   }
