@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const LoginScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#DCDCDC",
+    backgroundColor: "#19647E",
     justifyContent: "center",
     alignItems: "center"
   },
@@ -13,7 +13,7 @@ const LoginScreenStyles = StyleSheet.create({
     borderRadius: 3,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#841584"
+    backgroundColor: "#F56476"
   },
   input: {
     height: 50,

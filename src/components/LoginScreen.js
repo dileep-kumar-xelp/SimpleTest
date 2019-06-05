@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { AsyncStorage } from "react-native";
 import styles from "../styles/LoginScreenStyles";
 export default class LoginScreen extends Component {
+  static navigationOptions = {
+    header: null
+  };
   constructor(props) {
     super(props);
 
@@ -47,7 +50,7 @@ export default class LoginScreen extends Component {
           style={styles.input}
           placeholder={"Enter email here"}
           autoCapitalize={"none"}
-          placeholderTextColor={"#000"}
+          placeholderTextColor={"rgba(0,0,0,0.5)"}
           underlineColorAndroid={"transparent"}
           keyboardType={"default"}
           multiline={false}

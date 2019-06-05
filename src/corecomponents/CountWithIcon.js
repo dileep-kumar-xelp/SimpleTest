@@ -12,8 +12,12 @@ export default class CountWithIcon extends Component {
           alignItems: "center"
         }}
       >
-        <Icon name={iconName} size={iconSIze} color={"#d3d3d3"} />
-        <Text style={{ marginLeft: 5 }}>{count}</Text>
+        <Icon name={iconName} size={iconSIze} color={"#222"} />
+        <Text
+          style={{ marginLeft: 5, fontSize: 12, fontFamily: "Lato-Regular" }}
+        >
+          {count}
+        </Text>
       </View>
     );
   }
