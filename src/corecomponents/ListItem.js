@@ -14,12 +14,18 @@ export default class ListItem extends Component {
           )}
         </View>
         <View style={styles.dataHolder}>
-          <Text numberOfLines={1} ellipsizeMode={"tail"}>
+          <Text numberOfLines={1} ellipsizeMode={"tail"} style={styles.title}>
             {this.props.title}
           </Text>
           <View style={styles.bottomContent}>
             <CountWithIcon iconName={"thumbs-o-up"} count={this.props.ups} />
-            <CountWithIcon iconName={"comment-o"} count={this.props.comments} />
+            <View style={{ marginHorizontal: 20 }}>
+              <CountWithIcon
+                iconName={"comment-o"}
+                count={this.props.comments}
+              />
+            </View>
+
             <Text onPress={() => alert("clicked")} style={styles.viewButton}>
               {"View".toUpperCase()}
             </Text>

@@ -31,13 +31,20 @@ const ListItemStyles = StyleSheet.create({
   },
   viewButton: {
     textAlign: "center",
+    textAlignVertical: "center",
     paddingHorizontal: 10,
     paddingVertical: 2,
     borderRadius: 3,
     borderWidth: 1,
     fontSize: 9,
     borderColor: "#d3d3d3",
-    color: "#1976D2"
+    color: "#1976D2",
+    fontFamily: "OpenSans-Bold"
+  },
+  title: {
+    fontSize: 15,
+    color: "#222",
+    fontFamily: "Lato-Regular"
   }
 });
 
