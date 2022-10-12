@@ -9,7 +9,7 @@
   "dependencies": {
     "@prince8verma/react-native-snackbar": "^1.2.2",
     "react": "16.6.3",
-    "react-native": "0.58.4",
+    "react-native": "0.70.2",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-masonry-layout": "^1.0.6",
     "react-native-snackbar-component": "^1.1.0",
